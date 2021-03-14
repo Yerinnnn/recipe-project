@@ -21,6 +21,8 @@ public class RecipeVO {
 	private String writer;
 	private Date date;
 	private int viewCnt;
+	
+	
 	public int getRno() {
 		return rno;
 	}
@@ -57,7 +59,5 @@ public class RecipeVO {
 	public void setViewCnt(int viewCnt) {
 		this.viewCnt = viewCnt;
 	}
-	
-	
 	
 }

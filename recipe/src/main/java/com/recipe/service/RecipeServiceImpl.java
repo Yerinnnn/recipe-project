@@ -21,4 +21,43 @@ public class RecipeServiceImpl implements RecipeService {
 		return dao.list();
 	}
 
+	@Override
+	public void write(RecipeVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		dao.write(vo);
+		
+	}
+
+	@Override
+	public RecipeVO view(int rno) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.view(rno);
+	}
+
+	@Override
+	public void modify(RecipeVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		dao.modify(vo);
+		
+	}
+
+	@Override
+	public void delete(int rno) throws Exception {
+		// TODO Auto-generated method stub
+		dao.delete(rno);
+		
+	}
+
+	@Override
+	public int count() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.count();
+	}
+
+	@Override
+	public List<RecipeVO> listPage(int displayPost, int postNum) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.listPage(displayPost, postNum);
+	}
+
 }

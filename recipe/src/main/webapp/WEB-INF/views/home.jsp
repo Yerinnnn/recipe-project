@@ -12,6 +12,7 @@
 	<P>The time on the server is ${serverTime}.</P>
 	<p>
 		<a href="/recipe/list">게시물 목록</a>
+		<a href="/recipe/write">게시물 작성</a>
 	</p>
 </body>
 </html>
