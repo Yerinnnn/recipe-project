@@ -112,7 +112,7 @@ public class RecipeController {
 		
 		// 검색 타입과 검색어
 		page.setSearchType(searchType);
-		page.setSearchType(keyword);
+		page.setKeyword(keyword);
 
 		List<RecipeVO> list = null;
 		list = service.listPageSearch(page.getDisplayPost(), page.getPostNum(), searchType, keyword);

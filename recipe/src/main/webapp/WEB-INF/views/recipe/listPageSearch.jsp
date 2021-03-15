@@ -38,28 +38,35 @@
 	</table>
 	<div>
 		<c:forEach begin="1" end="${pageNum}" var="num">
-			<span> <a href="/recipe/listPage?num=${num}">${num}</a>
+			<span>
+				<a href="/recipe/listPage?num=${num}">${num}</a>
 			</span>
 		</c:forEach>
 	</div>
 
 	<c:if test="${page.prev}">
-		<span> [ <a href="/recipe/listPageSearch?num=${page.startPageNum - 1}${page.searchTypeKeyword}">이전</a> ]
+		<span>
+			[ <a href="/recipe/listPageSearch?num=${page.startPageNum - 1}${page.searchTypeKeyword}">이전</a> ]
 		</span>
 	</c:if>
 
 	<c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
-		<span> <c:if test="${select != num}">
+		<span>
+		
+			<c:if test="${select != num}">
 				<a href="/recipe/listPageSearch?num=${num}${page.searchTypeKeyword}">${num}</a>
-			</c:if> <c:if test="${select == num}">
+			</c:if>
+			
+			<c:if test="${select == num}">
 				<b>${num}</b>
 			</c:if>
-
+			
 		</span>
 	</c:forEach>
 
 	<c:if test="${page.next}">
-		<span> [ <a href="/reicpe/listPageSearch?num=${page.endPageNum + 1}${page.searchTypeKeyword">다음</a> ]
+		<span>
+			[ <a href="/reicpe/listPageSearch?num=${page.endPageNum + 1}${page.searchTypeKeyword}">다음</a> ]
 		</span>
 	</c:if>
 
@@ -70,7 +77,7 @@
 			<option value="title_content" <c:if test="${page.searchType eq 'title_content'}">selected</c:if>>제목+내용</option>
 			<option value="writer" <c:if test="${page.searchType eq 'writer'}">selected</c:if>>작성자</option>
 		</select>
-		
+
 		<input type="text" name="keyword" value="${page.keyword}" />
 
 		<button id="searchBtn" type="button">검색</button>
@@ -85,7 +92,7 @@
 			console.log(searchType)
 			console.log(keyword)
 
-			location.href = "/board/listPageSearch?num=1" + "&searchType="
+			location.href = "/recipe/listPageSearch?num=1" + "&searchType="
 					+ searchType + "&keyword=" + keyword;
 		};
 	</script>

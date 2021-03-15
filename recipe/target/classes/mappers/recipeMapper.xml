@@ -60,7 +60,7 @@
 	</select>
 
 	<!-- 게시물 목록 + 페이징 + 검색 -->
-	<select id="listPage" parameterType="hashMap"
+	<select id="listPageSearch" parameterType="hashMap"
 		resultType="com.recipe.domain.RecipeVO">
 		select
 		rno, title, writer, date, viewCnt
@@ -89,7 +89,7 @@
 
 	<!-- 게시물 총 갯수 + 검색 적용 -->
 	<select id="searchCount" parameterType="hashMap" resultType="int">
-		select count rno) from recipe
+		select count(rno) from recipe
 
 		<if test='searchType.equals("title")'>
 			WHERE title LIKE concat('%', #{keyword}, '%')

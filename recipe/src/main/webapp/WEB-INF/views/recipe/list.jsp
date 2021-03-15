@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
@@ -30,7 +29,7 @@
 				<tr>
 					<td>${list.rno}</td>
 					<td><a href="/recipe/view?rno=${list.rno}">${list.title}</a></td>
-					<fmt:formatDate value="${list.date}" pattern="yyyy-MM-dd" />
+					<td><fmt:formatDate value="${list.date}" pattern="yyyy-MM-dd" /></td>
 					<td>${list.writer}</td>
 					<td>${list.viewCnt}</td>
 				</tr>
