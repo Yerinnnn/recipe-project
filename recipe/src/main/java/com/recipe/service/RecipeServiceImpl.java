@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.recipe.dao.RecipeDAO;
 import com.recipe.domain.RecipeVO;
 
-
 @Service
 public class RecipeServiceImpl implements RecipeService {
 	@Inject
@@ -25,7 +24,7 @@ public class RecipeServiceImpl implements RecipeService {
 	public void write(RecipeVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		dao.write(vo);
-		
+
 	}
 
 	@Override
@@ -38,14 +37,14 @@ public class RecipeServiceImpl implements RecipeService {
 	public void modify(RecipeVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		dao.modify(vo);
-		
+
 	}
 
 	@Override
 	public void delete(int rno) throws Exception {
 		// TODO Auto-generated method stub
 		dao.delete(rno);
-		
+
 	}
 
 	@Override
@@ -58,6 +57,19 @@ public class RecipeServiceImpl implements RecipeService {
 	public List<RecipeVO> listPage(int displayPost, int postNum) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.listPage(displayPost, postNum);
+	}
+
+	@Override
+	public List<RecipeVO> listPageSearch(int displayPost, int postNum, String searchType, String keyword)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return dao.listPageSearch(displayPost, postNum, searchType, keyword);
+	}
+
+	@Override
+	public int searchCount(String searchType, String keyword) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.searchCount(searchType, keyword);
 	}
 
 }

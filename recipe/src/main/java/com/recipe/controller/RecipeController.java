@@ -79,7 +79,7 @@ public class RecipeController {
 		return "redirect:/recipe/list";
 	}
 
-// 게시물 목록 + 페이징 추가
+	// 게시물 목록 + 페이징 추가
 	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
 	public void getListPage(Model model, @RequestParam("num") int num) throws Exception {
 
@@ -92,10 +92,33 @@ public class RecipeController {
 		list = service.listPage(page.getDisplayPost(), page.getPostNum());
 
 		model.addAttribute("list", list);
-		
+
 		model.addAttribute("page", page);
-		
+
 		model.addAttribute("select", num);
+
+	}
+
+	// 게시물 목록 + 페이징 추가
+	@RequestMapping(value = "/listPageSearch", method = RequestMethod.GET)
+	public void getListPageSearch(Model model, @RequestParam("num") int num,
+			@RequestParam(value = "searchType", required = false, defaultValue = "title") String searchType,
+			@RequestParam(value = "keyword", required = false, defaultValue = "") String keyword) throws Exception {
+
+		Page page = new Page();
+
+		page.setNum(num);
+		page.setCount(service.searchCount(searchType, keyword));
 		
+		// 검색 타입과 검색어
+		page.setSearchType(searchType);
+		page.setSearchType(keyword);
+
+		List<RecipeVO> list = null;
+		list = service.listPageSearch(page.getDisplayPost(), page.getPostNum(), searchType, keyword);
+
+		model.addAttribute("list", list);
+		model.addAttribute("page", page);
+		model.addAttribute("select", num);
 	}
 }
