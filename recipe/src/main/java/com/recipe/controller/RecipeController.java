@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.recipe.domain.CommentVO;
 import com.recipe.domain.Page;
 import com.recipe.domain.RecipeVO;
+import com.recipe.service.CommentService;
 import com.recipe.service.RecipeService;
 
 @Controller
@@ -21,7 +23,10 @@ public class RecipeController {
 
 	@Inject
 	RecipeService service;
-
+	@Inject
+	private CommentService commentService;
+	
+	// 게시물 목록
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void getList(Model model) throws Exception {
 
@@ -51,6 +56,11 @@ public class RecipeController {
 
 		RecipeVO vo = service.view(rno);
 		model.addAttribute("view", vo);
+		
+		// 댓글 조회
+		List<CommentVO> comment = null;
+		comment = commentService.list(rno);
+		model.addAttribute("comment", comment);
 	}
 
 	// 게시물 수정
