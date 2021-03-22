@@ -9,6 +9,7 @@ public class CommentVO {
 	private String writer;
 	private String content;
 	private Date date;
+	
 	public int getCno() {
 		return cno;
 	}

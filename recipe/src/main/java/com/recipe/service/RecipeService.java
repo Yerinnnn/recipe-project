@@ -2,8 +2,11 @@ package com.recipe.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.recipe.domain.RecipeVO;
 
+@Service
 public interface RecipeService {
 	// 게시물 목록
 	public List<RecipeVO> list() throws Exception;

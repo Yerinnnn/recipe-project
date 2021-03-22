@@ -22,7 +22,8 @@ import com.recipe.service.RecipeService;
 public class RecipeController {
 
 	@Inject
-	RecipeService service;
+	private RecipeService service;
+	
 	@Inject
 	private CommentService commentService;
 	
@@ -38,13 +39,13 @@ public class RecipeController {
 
 	// 게시물 작성
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
-	public void getWrite() throws Exception {
+	public void getWirte() throws Exception {
 
 	}
 
 	// 게시물 작성
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
-	public String postWrite(RecipeVO vo) throws Exception {
+	public String posttWrite(RecipeVO vo) throws Exception {
 		service.write(vo);
 
 		return "redirect:/recipe/list";

@@ -2,8 +2,11 @@ package com.recipe.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.recipe.domain.CommentVO;
 
+@Service
 public interface CommentService {
 	// 댓글 조회
 	public List<CommentVO> list(int rno) throws Exception;

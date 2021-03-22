@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,27 +50,44 @@
 		</li>
 		-->
 
+
+		<!-- <c:forEach items="${reply}" var="reply">
+			<li>
+				<div>
+					<p>${reply.writer}/ ${reply.date}</p>
+					<p>${reply.content}</p>
+				</div>
+			</li>
+		</c:forEach> -->
+
 		<c:forEach items="${comment}" var="comment">
 			<li>
 				<div>
-					<p>${reply.writer} / <fmt:formatDate value="${reply.regDate}" pattern="yyyy-MM-dd" /></p>
-					<p>${reply.content }</p>
+					<p>${comment.writer}
+						/
+						<fmt:formatDate value="${comment.date}" pattern="yyyy-MM-dd" />
+					</p>
+					<p>${comment.content}</p>
 				</div>
 			</li>
 		</c:forEach>
 	</ul>
 
 	<div>
-		<p>
-			<label>댓글 작성자</label>
-			<input type="text">
-		</p>
-		<p>
-			<textarea rows="5" cols="50"></textarea>
-		</p>
-		<p>
-			<button type="button">댓글 작성</button>
-		</p>
+
+		<form method="post" action="/comment/write">
+			<p>
+				<label>댓글 작성자</label>
+				<input type="text" name="writer">
+			</p>
+			<p>
+				<textarea rows="5" cols="50" name="content"></textarea>
+			</p>
+			<p>
+				<input type="hidden" name="rno" value="${view.rno}">
+				<button type="submit">댓글 작성</button>
+			</p>
+		</form>
 	</div>
 	<!-- 댓글 끝 -->
 </body>

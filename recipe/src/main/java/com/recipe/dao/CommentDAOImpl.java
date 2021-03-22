@@ -14,7 +14,7 @@ public class CommentDAOImpl implements CommentDAO {
 	
 	@Inject
 	private SqlSession sql;
-	private static String namespace = "com.recipe.mappers.commentMapper";
+	private static String namespace = "com.recipe.mappers.comment";
 
 	@Override
 	public List<CommentVO> list(int rno) throws Exception {

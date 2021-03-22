@@ -2,6 +2,8 @@ package com.recipe.service;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Service;
 
 import com.recipe.dao.CommentDAO;
@@ -10,6 +12,7 @@ import com.recipe.domain.CommentVO;
 @Service
 public class CommentServiceImpl implements CommentService {
 	
+	@Inject
 	private CommentDAO dao;
 
 	@Override
